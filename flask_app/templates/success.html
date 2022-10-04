@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <title>Success</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="success">
+
+            {% if session['route'] == 'register' %}                            <!-- check if there are any messages -->
+                <h1>Email successfully Registered</h1>
+                <div class="successMsg">
+                    <h3>The email address you entered ({{session['email']}}) </h3>
+                    <h3>has been successfully registered! Thank you!</h3>
+                    <h3>First Name: {{one_user.first_name}}</h3>
+                    <h3>Last Name: {{one_user.last_name}}</h3>
+                    <h3>Email Address: {{one_user.email}}</h3>
+                    <h3>Created On: {{one_user.created_at}}</h3>
+                </div>
+            {% endif %}
+            {% if session['route'] == 'login' %}                            <!-- check if there are any messages -->
+                <h1>User successfully Logged In</h1>
+                <div class="successMsg">
+                    <h3>The email address you entered ({{session['email']}}) </h3>
+                    <h3>is a VALID email address! Thank you!</h3>
+                </div>
+            {% endif %}
+
+            <h3><a href="/Logout">Logout</a></h3>
+        </div>
+    </div>
+    
+</body>
+</html>
